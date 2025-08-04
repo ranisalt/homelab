@@ -1,0 +1,12 @@
+[Container]
+ContainerName=%N
+Image=ghcr.io/immich-app/immich-machine-learning:v1.137.3
+Pod=immich.pod
+Volume=immich-model-cache.volume:/cache
+Volume=/dev/bus/usb:/dev/bus/usb
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

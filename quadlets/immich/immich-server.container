@@ -1,0 +1,18 @@
+[Unit]
+Requires=immich-redis.container immich-database.container
+After=immich-redis.container immich-database.container
+
+[Container]
+ContainerName=%N
+Environment=DB_HOSTNAME=immich-database
+Environment=REDIS_HOSTNAME=immich-redis
+Image=ghcr.io/immich-app/immich-server:v1.137.3
+Pod=immich.pod
+Volume=%D/immich/library:/data
+Volume=/etc/localtime:/etc/localtime:ro
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

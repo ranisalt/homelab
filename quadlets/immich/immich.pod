@@ -1,0 +1,3 @@
+[Pod]
+PodName=%N
+PublishPort=2283:2283/tcp
