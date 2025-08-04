@@ -1,0 +1,19 @@
+[Unit]
+Wants=radarr.container sonarr.container
+After=radarr.container sonarr.container
+
+[Container]
+AutoUpdate=registry
+ContainerName=%N
+Environment=PGID=1000
+Environment=PUID=1000
+Environment=UMASK=022
+Image=ghcr.io/hotio/prowlarr:release
+Pod=jellyfin.pod
+Volume=%E/%N:/config
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

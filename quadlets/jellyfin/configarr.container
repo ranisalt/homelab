@@ -1,0 +1,10 @@
+[Container]
+ContainerName=%N
+Image=ghcr.io/raydak-labs/configarr:latest
+Pull=newer
+User=1000:1000
+Volume=%E/%N:/app/config
+Volume=%C/%N:/app/repos
+
+[Service]
+Type=oneshot
