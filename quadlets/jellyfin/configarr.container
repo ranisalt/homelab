@@ -7,4 +7,6 @@ Volume=%E/%N:/app/config
 Volume=%C/%N:/app/repos
 
 [Service]
+CacheDirectory=%N
+ConfigurationDirectory=%N
 Type=oneshot

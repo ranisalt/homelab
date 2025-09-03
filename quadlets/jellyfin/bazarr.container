@@ -10,6 +10,7 @@ Pod=jellyfin.pod
 Volume=%E/%N:/config
 
 [Service]
+ConfigurationDirectory=%N
 Restart=always
 
 [Install]
