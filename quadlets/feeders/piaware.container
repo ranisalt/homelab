@@ -1,0 +1,17 @@
+[Unit]
+Requires=dump1090.container
+After=dump1090.container
+
+[Container]
+AutoUpdate=registry
+ContainerName=%N
+Image=ghcr.io/ranisalt/piaware:latest
+Pod=feeders.pod
+Volume=%E/%N/piaware.conf:/etc/piaware.conf
+
+[Service]
+ConfigurationDirectory=%N
+Restart=always
+
+[Install]
+WantedBy=default.target

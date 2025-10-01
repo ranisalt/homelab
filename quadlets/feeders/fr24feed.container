@@ -1,0 +1,17 @@
+[Unit]
+Requires=dump1090.container
+After=dump1090.container
+
+[Container]
+AutoUpdate=registry
+ContainerName=%N
+Image=ghcr.io/ranisalt/fr24feed:latest
+Pod=feeders.pod
+Volume=%E/%N/fr24feed.ini:/etc/fr24feed.ini
+
+[Service]
+ConfigurationDirectory=%N
+Restart=always
+
+[Install]
+WantedBy=default.target

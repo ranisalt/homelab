@@ -1,0 +1,13 @@
+[Container]
+AddDevice=/dev/bus/usb:/dev/bus/usb:r
+AutoUpdate=registry
+ContainerName=%N
+Image=ghcr.io/ranisalt/dump1090:latest
+Pod=feeders.pod
+PodmanArgs=--group-add keep-groups
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
