@@ -1,0 +1,13 @@
+[Container]
+AutoUpdate=registry
+ContainerName=%N
+Image=docker.io/henrygd/beszel:latest
+PublishPort=8090:8090/tcp
+Volume=%S/%N:/beszel_data
+
+[Service]
+Restart=always
+StateDirectory=%N
+
+[Install]
+WantedBy=default.target
