@@ -7,12 +7,12 @@ Secret=beszel-agent-hub-url,type=env,target=HUB_URL
 Secret=beszel-agent-key,type=env,target=KEY
 Secret=beszel-agent-token,type=env,target=TOKEN
 User=1000:1000
-Volume=%S/%N:/var/lib/beszel-agent
 Volume=%t/podman/podman.sock:%t/podman/podman.sock:ro
+Volume=/etc/machine-id:/etc/machine-id:ro
+Volume=beszel-agent.volume:/var/lib/beszel-agent
 
 [Service]
 Restart=always
-StateDirectory=%N
 
 [Install]
 WantedBy=default.target
