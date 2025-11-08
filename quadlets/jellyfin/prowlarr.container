@@ -10,6 +10,7 @@ Environment=PUID=1000
 Environment=UMASK=022
 Image=ghcr.io/hotio/prowlarr:release
 Pod=jellyfin.pod
+Secret=tz,type=env,target=TZ
 Sysctl=net.ipv6.conf.all.disable_ipv6=1
 Volume=%E/%N:/config
 

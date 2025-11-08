@@ -8,6 +8,7 @@ Environment=DB_HOSTNAME=immich-database
 Environment=REDIS_HOSTNAME=immich-redis
 Image=ghcr.io/immich-app/immich-server:v2.2.3
 Pod=immich.pod
+Secret=tz,type=env,target=TZ
 Volume=%D/immich/library:/data
 Volume=/etc/localtime:/etc/localtime:ro
 
