@@ -5,7 +5,7 @@ Environment=PGID=1000
 Environment=PUID=1000
 Environment=UMASK=022
 Environment=WEBUI_PORTS=6767/tcp
-Image=ghcr.io/hotio/bazarr:release
+Image=lscr.io/linuxserver/bazarr:latest
 Pod=jellyfin.pod
 Secret=tz,type=env,target=TZ
 Volume=%E/%N:/config

@@ -4,7 +4,7 @@ ContainerName=%N
 Environment=PGID=1000
 Environment=PUID=1000
 Environment=UMASK=022
-Image=ghcr.io/hotio/jellyfin:release
+Image=lscr.io/linuxserver/jellyfin:latest
 Pod=jellyfin.pod
 Secret=tz,type=env,target=TZ
 Volume=%E/%N:/config

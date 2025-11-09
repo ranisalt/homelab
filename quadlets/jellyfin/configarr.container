@@ -1,6 +1,7 @@
 [Container]
 ContainerName=%N
 Image=ghcr.io/raydak-labs/configarr:latest
+Pod=jellyfin.pod
 Pull=newer
 Secret=tz,type=env,target=TZ
 User=1000:1000
