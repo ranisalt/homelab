@@ -1,13 +1,16 @@
 [Container]
 AutoUpdate=registry
 ContainerName=%N
-Image=docker.io/henrygd/beszel-agent:latest
+Environment=LISTEN=45876
+Environment=SKIP_GPU=true
+HealthCmd=/agent health
+HealthInterval=120s
+Image=docker.io/henrygd/beszel-agent:alpine
 Network=host
 Secret=beszel-agent-hub-url,type=env,target=HUB_URL
 Secret=beszel-agent-key,type=env,target=KEY
 Secret=beszel-agent-token,type=env,target=TOKEN
-User=1000:1000
-Volume=%t/podman/podman.sock:%t/podman/podman.sock:ro
+Volume=%t/podman/podman.sock:/var/run/docker.sock:ro
 Volume=/etc/machine-id:/etc/machine-id:ro
 Volume=beszel-agent.volume:/var/lib/beszel-agent
 
