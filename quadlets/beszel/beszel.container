@@ -3,7 +3,7 @@ AutoUpdate=registry
 ContainerName=%N
 Image=docker.io/henrygd/beszel:latest
 PublishPort=8090:8090/tcp
-Volume=%S/%N:/beszel_data
+Volume=%D/%N:/beszel_data
 
 [Service]
 Restart=always
