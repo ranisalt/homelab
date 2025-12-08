@@ -4,6 +4,11 @@ ContainerName=%N
 Environment=PGID=1000
 Environment=PUID=1000
 Environment=UMASK=022
+HealthCmd=/usr/bin/curl -f http://localhost:8096/health
+HealthInterval=15s
+HealthRetries=3
+HealthStartPeriod=20s
+HealthTimeout=3s
 Image=lscr.io/linuxserver/jellyfin:latest
 Pod=jellyfin.pod
 Secret=tz,type=env,target=TZ

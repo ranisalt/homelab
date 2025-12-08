@@ -8,6 +8,11 @@ ContainerName=%N
 Environment=PGID=1000
 Environment=PUID=1000
 Environment=UMASK=022
+HealthCmd=/usr/bin/curl -f http://localhost:9696/api/v1/health
+HealthInterval=15s
+HealthRetries=3
+HealthStartPeriod=20s
+HealthTimeout=3s
 Image=ghcr.io/hotio/prowlarr:release
 Pod=jellyfin.pod
 Secret=tz,type=env,target=TZ
