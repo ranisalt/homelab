@@ -3,6 +3,7 @@ AutoUpdate=registry
 ContainerName=%N
 Environment=LISTEN=45876
 Environment=SKIP_GPU=true
+GroupAdd=keep-groups
 HealthCmd=/agent health
 HealthInterval=120s
 Image=docker.io/henrygd/beszel-agent:alpine
@@ -10,7 +11,9 @@ Network=host
 Secret=beszel-agent-hub-url,type=env,target=HUB_URL
 Secret=beszel-agent-key,type=env,target=KEY
 Secret=beszel-agent-token,type=env,target=TOKEN
-Volume=%t/podman/podman.sock:/var/run/docker.sock:ro
+User=%U:%G
+UserNS=keep-id:uid=%U,gid=%G
+Volume=%t/podman/podman.sock:%t/podman/podman.sock:ro
 Volume=/etc/machine-id:/etc/machine-id:ro
 Volume=beszel-agent.volume:/var/lib/beszel-agent
 
