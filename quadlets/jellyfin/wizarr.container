@@ -1,0 +1,17 @@
+[Container]
+AutoUpdate=registry
+ContainerName=%N
+Environment=DISABLE_BUILTIN_AUTH=false
+Environment=PGID=1000
+Environment=PUID=1000
+Environment=UMASK=022
+Image=ghcr.io/wizarrrr/wizarr:latest
+Pod=jellyfin.pod
+Secret=tz,type=env,target=TZ
+Volume=%D/%N:/data
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
