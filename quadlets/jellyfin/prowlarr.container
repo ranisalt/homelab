@@ -13,7 +13,7 @@ HealthInterval=15s
 HealthRetries=3
 HealthStartPeriod=20s
 HealthTimeout=3s
-Image=ghcr.io/hotio/prowlarr:release
+Image=lscr.io/linuxserver/prowlarr:latest
 Pod=jellyfin.pod
 Secret=tz,type=env,target=TZ
 Sysctl=net.ipv6.conf.all.disable_ipv6=1
