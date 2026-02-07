@@ -1,0 +1,17 @@
+[Container]
+ContainerName=%N
+Environment=POSTGRES_DB=paperless
+Environment=POSTGRES_INITDB_ARGS=--data-checksums
+Environment=POSTGRES_USER=paperless
+HealthCmd=pg_isready -U paperless
+HealthInterval=10s
+HealthStartPeriod=20s
+Image=docker.io/postgres:18-alpine
+Notify=healthy
+Pod=paperless.pod
+ShmSize=1g
+Secret=paperless-postgres-password,type=env,target=POSTGRES_PASSWORD
+Volume=paperless-postgres.volume:/var/lib/postgresql/data
+
+[Service]
+Restart=always

@@ -1,0 +1,3 @@
+[Pod]
+PodName=%N
+PublishPort=2080:8000/tcp

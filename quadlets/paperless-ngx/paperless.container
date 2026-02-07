@@ -1,0 +1,25 @@
+[Unit]
+Requires=paperless-broker.service paperless-postgres.service
+After=paperless-broker.service paperless-postgres.service
+
+[Container]
+AutoUpdate=registry
+ContainerName=%N
+Environment=PAPERLESS_DBHOST=paperless-postgres
+Environment=PAPERLESS_REDIS=redis://paperless-broker:6379
+Environment=USERMAP_GID=1000
+Environment=USERMAP_UID=1000
+Image=paperless.build
+Pod=paperless.pod
+Secret=paperless-postgres-password,type=env,target=DB_POSTGRESDB_PASSWORD
+Secret=tz,type=env,target=PAPERLESS_TIME_ZONE
+Volume=paperless-data.volume:/usr/src/paperless/data
+Volume=paperless-media.volume:/usr/src/paperless/media
+Volume=%h/paperless/consume:/usr/src/paperless/consume
+Volume=%h/paperless/export:/usr/src/paperless/export
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
