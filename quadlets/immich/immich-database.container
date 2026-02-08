@@ -9,6 +9,3 @@ Volume=%D/immich/postgres:/var/lib/postgresql/data
 
 [Service]
 Restart=always
-
-[Install]
-WantedBy=default.target

@@ -6,6 +6,3 @@ Pod=immich.pod
 
 [Service]
 Restart=always
-
-[Install]
-WantedBy=default.target

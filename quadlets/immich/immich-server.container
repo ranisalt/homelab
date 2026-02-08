@@ -6,7 +6,7 @@ After=immich-redis.container immich-database.container
 ContainerName=%N
 Environment=DB_HOSTNAME=immich-database
 Environment=REDIS_HOSTNAME=immich-redis
-Image=ghcr.io/immich-app/immich-server:v2.5.2
+Image=ghcr.io/immich-app/immich-server:v2.5.5
 Pod=immich.pod
 Secret=tz,type=env,target=TZ
 Volume=%D/immich/library:/data
