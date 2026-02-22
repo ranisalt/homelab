@@ -1,11 +1,14 @@
 [Container]
 ContainerName=%N
+DropCapability=NET_RAW
 Environment=POSTGRES_DB=immich
 Environment=POSTGRES_INITDB_ARGS=--data-checksums
 Image=ghcr.io/immich-app/postgres@sha256:bcf63357191b76a916ae5eb93464d65c07511da41e3bf7a8416db519b40b1c23
-Pod=immich.pod
+Network=immich-database.network
+NoNewPrivileges=yes
 ShmSize=128mb
-Volume=%D/immich/postgres:/var/lib/postgresql/data
+User=1000:1000
+Volume=immich-database.volume:/var/lib/postgresql/data:U,Z
 
 [Service]
 Restart=always

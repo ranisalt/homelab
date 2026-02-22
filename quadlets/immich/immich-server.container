@@ -1,14 +1,20 @@
 [Unit]
-Requires=immich-redis.container immich-database.container
-After=immich-redis.container immich-database.container
+Requires=immich-redis.service immich-database.service
+After=immich-redis.service immich-database.service
 
 [Container]
 ContainerName=%N
+DropCapability=NET_RAW
 Environment=DB_HOSTNAME=immich-database
 Environment=REDIS_HOSTNAME=immich-redis
-Image=ghcr.io/immich-app/immich-server:v2.5.5
-Pod=immich.pod
+Image=ghcr.io/immich-app/immich-server:v2.5.6
+Network=immich-database.network
+Network=immich-machine-learning.network
+Network=immich-redis.network
+NoNewPrivileges=yes
+PublishPort=2283:2283/tcp
 Secret=tz,type=env,target=TZ
+User=1000:1000
 Volume=%D/immich/library:/data
 Volume=/etc/localtime:/etc/localtime:ro
 
