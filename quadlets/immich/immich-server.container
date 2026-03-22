@@ -7,7 +7,7 @@ ContainerName=%N
 DropCapability=NET_RAW
 Environment=DB_HOSTNAME=immich-database
 Environment=REDIS_HOSTNAME=immich-redis
-Image=ghcr.io/immich-app/immich-server:v2.5.6
+Image=ghcr.io/immich-app/immich-server:v2.6.1
 Network=immich-database.network
 Network=immich-machine-learning.network
 Network=immich-redis.network
