@@ -27,7 +27,38 @@ sonarr:
 
     custom_formats:
       - trash_ids:
+          # Audio formats
+          - 0d7824bb924701997f874e7ff7d4844a # TrueHD ATMOS
+          - 9d00418ba386a083fbf4d58235fc37ef # DTS X
+          - b6fbafa7942952a13e17e2b1152b539a # ATMOS (undefined)
+          - 4232a509ce60c4e208d13825b7c06264 # DD+ ATMOS
+          - 1808e4b9cee74e064dfae3f1db99dbfe # TrueHD
+          - c429417a57ea8c41d57e6990a8b0033f # DTS-HD MA
+          - 851bd64e04c9374c51102be3dd9ae4cc # FLAC
+          - 30f70576671ca933adbdcfc736a69718 # PCM
+          - cfa5fbd8f02a86fc55d8d223d06a5e1f # DTS-HD HRA
+          - 63487786a8b01b7f20dd2bc90dd4a477 # DD+
+          - c1a25cd67b5d2e08287c957b1eb903ec # DTS-ES
+          - 5964f2a8b3be407d083498e4459d05d0 # DTS
+          - a50b8a0c62274a7c38b09a9619ba9d86 # AAC
+          - dbe00161b08a25ac6154c55f95e6318d # DD
+          - 3e8b714263b26f486972ee1e0fe7606c # MP3
+          - 28f6ef16d61e2d1adfce3156ed8257e3 # Opus
+
+          # HDR formats
+          - 505d871304820ba7106b693be6fe4a9e # HDR
+          - 7c3a61a9c6cb04f52f1544be6d44a026 # DV Boost
+          - 0c4b99df9206d2cfac3c05ab897dd62a # HDR10+ Boost
+          - 9b27ab6498ec0f31a3353992e19434ca # DV (w/o HDR fallback)
+
+          # Series Versions
+          - 3a4127d8aa781b44120d907f2cd62627 # Hybrid
+          - b735f09d3c025cbb7d75a5d38325b73b # Remaster
+
           # Miscellaneous
+          - ec8fa7296b64e8cd390a1600981f3923 # Repack/Proper
+          - eb3d5cc0a2be0db205fb823640db6a3c # Repack2
+          - 44e7c4de10ae50265753082e5dc76047 # Repack3
           - 32b367365729d530ca1c124a0b180c64 # Bad Dual Groups
           - 82d40da2bc6923f41e14394075dd4b03 # No-RlsGroup
           - e1a997ddb54e3ecbfe06341ad323c458 # Obfuscated
@@ -83,20 +114,14 @@ radarr:
           - 1c1a4c5e823891c75bc50380a6866f73 # DTS
           - 240770601cc226190c367ef59aba7463 # AAC
           - c2998bd0d90ed5621d8df281e839436e # DD
+          - 6ba9033150e7896bdc9ec4b44f2b230f # MP3
+          - a061e2e700f81932daf888599f8a8273 # Opus
 
           # HDR formats
           - 493b6d1dbec3c3364c59d7607f7e3405 # HDR
           - b337d6812e06c200ec9a2d3cfa9d20a7 # DV Boost
           - caa37d0df9c348912df1fb1d88f9273a # HDR10+ Boost
           - 923b6abef9b17f937fab56cfcf89e1f1 # DV (w/o HDR fallback)
-
-          # Miscellaneous
-          - b6832f586342ef70d9c128d40c07b872 # Bad Dual Groups
-          - cc444569854e9de0b084ab2b8b1532b2 # Black and White Editions
-          - ae9b7c9ebde1f3bd336a8cbd1ec4c5e5 # No-RlsGroup
-          - 7357cf5161efbf8c4d5d0c30b4815ee2 # Obfuscated
-          - 5c44f52a8714fdd79bb4d98e2673be1f # Retags
-          - f537cf427b64c38c8e36298f657e4828 # Scene
 
           # Movie Versions
           - 0f12c086e289cf966fa5948eac571f44 # Hybrid
@@ -105,11 +130,25 @@ radarr:
           - e0c07d59beb37348e975a930d5e50319 # Criterion Collection
           - 9d27d9d2181838f76dee150882bdc58c # Masters of Cinema
           - db9b4c4b53d312a3ca5f1378f6440fc9 # Vinegar Syndrome
+          - e9001909a4c88013a359d0b9920d7bea # Theatrical Cut
           - 957d0f44b592285f26449575e8b1167e # Special Edition
           - eecf3a857724171f968a66cb5719e152 # IMAX
           - 9f6cbff8cfe4ebbc1bde14c7b7bec0de # IMAX Enhanced
+          - 09d9dd29a0fc958f9796e65c2a8864b4 # Open Matte
+
+          # Miscellaneous
+          - b6832f586342ef70d9c128d40c07b872 # Bad Dual Groups
+          - cc444569854e9de0b084ab2b8b1532b2 # Black and White Editions
+          - ae9b7c9ebde1f3bd336a8cbd1ec4c5e5 # No-RlsGroup
+          - 7357cf5161efbf8c4d5d0c30b4815ee2 # Obfuscated
+          - 5c44f52a8714fdd79bb4d98e2673be1f # Retags
+          - f537cf427b64c38c8e36298f657e4828 # Scene
+          - e7718d7a3ce595f289bfee26adc178f5 # Repack/Proper
+          - ae43b294509409a6a13919dedd4764c4 # Repack2
+          - 5caaaa1c08c1742aa4342d8c4cc463f2 # Repack3
 
         assign_scores_to:
+          - name: Remux 2160p
           - name: Remux + WEB 2160p
           - name: Remux + WEB 1080p
           - name: Remux + WEB
@@ -119,6 +158,7 @@ radarr:
           - 9c38ebb7384dada637be8899efa68e6f # SDR
 
         assign_scores_to:
+          - name: Remux 2160p
           - name: Remux + WEB 2160p
           - name: Remux + WEB
 
