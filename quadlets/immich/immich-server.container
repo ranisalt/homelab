@@ -6,16 +6,22 @@ After=immich-redis.service immich-database.service
 ContainerName=%N
 DropCapability=NET_RAW
 Environment=DB_HOSTNAME=immich-database
+Environment=IMMICH_HELMET_FILE=true
 Environment=REDIS_HOSTNAME=immich-redis
-Image=ghcr.io/immich-app/immich-server:v2.6.1
+HealthCmd=/usr/bin/curl -fSs http://localhost:2283/api/server/ping
+HealthInterval=15s
+HealthRetries=3
+HealthStartPeriod=20s
+HealthTimeout=3s
+Image=ghcr.io/immich-app/immich-server:v2.7.3
 Network=immich-database.network
 Network=immich-machine-learning.network
 Network=immich-redis.network
+Network=podman
 NoNewPrivileges=yes
 PublishPort=2283:2283/tcp
 Secret=tz,type=env,target=TZ
 User=1000:1000
-Volume=%D/immich/library:/data
 Volume=/etc/localtime:/etc/localtime:ro
 
 [Service]
