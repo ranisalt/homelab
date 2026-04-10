@@ -10,7 +10,10 @@ HealthRetries=3
 HealthStartPeriod=20s
 HealthTimeout=3s
 Image=lscr.io/linuxserver/jellyfin:latest
-Pod=jellyfin.pod
+Network=jellyfin.network
+Network=podman
+PublishPort=7359:7359/udp
+PublishPort=8096:8096/tcp
 Secret=tz,type=env,target=TZ
 Volume=%C/%N:/cache
 Volume=%E/%N:/config

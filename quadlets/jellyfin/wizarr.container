@@ -6,9 +6,11 @@ Environment=PGID=1000
 Environment=PUID=1000
 Environment=UMASK=022
 Image=ghcr.io/wizarrrr/wizarr:latest
-Pod=jellyfin.pod
+Network=jellyfin.network
+Network=podman
+PublishPort=5690:5690/tcp
 Secret=tz,type=env,target=TZ
-Volume=%D/%N:/data
+Volume=%D/%N:/data:U,Z
 
 [Service]
 Restart=always

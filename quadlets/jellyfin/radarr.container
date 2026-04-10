@@ -10,9 +10,12 @@ HealthRetries=3
 HealthStartPeriod=20s
 HealthTimeout=3s
 Image=lscr.io/linuxserver/radarr:latest
-Pod=jellyfin.pod
+Network=bazarr.network
+Network=jellyfin.network
+Network=prowlarr.network
+PublishPort=7878:7878/tcp
 Secret=tz,type=env,target=TZ
-Volume=%E/%N:/config
+Volume=%E/%N:/config:U,Z
 
 [Service]
 ConfigurationDirectory=%N

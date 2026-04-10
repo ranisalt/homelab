@@ -1,6 +1,6 @@
 [Unit]
-Wants=radarr.container sonarr.container
-After=radarr.container sonarr.container
+Wants=radarr.service sonarr.service
+After=radarr.service sonarr.service
 
 [Container]
 AutoUpdate=registry
@@ -8,16 +8,17 @@ ContainerName=%N
 Environment=PGID=1000
 Environment=PUID=1000
 Environment=UMASK=022
-HealthCmd=/usr/bin/curl -f http://localhost:9696/api/v1/health
+HealthCmd=/usr/bin/curl -fSs http://localhost:9696/ping
 HealthInterval=15s
 HealthRetries=3
 HealthStartPeriod=20s
 HealthTimeout=3s
 Image=lscr.io/linuxserver/prowlarr:latest
-Pod=jellyfin.pod
+Network=prowlarr.network
+PublishPort=9696:9696/tcp
 Secret=tz,type=env,target=TZ
 Sysctl=net.ipv6.conf.all.disable_ipv6=1
-Volume=%E/%N:/config
+Volume=%E/%N:/config:U,Z
 
 [Service]
 ConfigurationDirectory=%N

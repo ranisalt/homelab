@@ -4,15 +4,18 @@ ContainerName=%N
 Environment=PGID=1000
 Environment=PUID=1000
 Environment=UMASK=022
-HealthCmd=/usr/bin/curl -f http://localhost:8989/api/v1/status
+HealthCmd=/usr/bin/curl -fSs http://localhost:8989/ping
 HealthInterval=15s
 HealthRetries=3
 HealthStartPeriod=20s
 HealthTimeout=3s
 Image=lscr.io/linuxserver/sonarr:latest
-Pod=jellyfin.pod
+Network=bazarr.network
+Network=jellyfin.network
+Network=prowlarr.network
+PublishPort=8989:8989/tcp
 Secret=tz,type=env,target=TZ
-Volume=%E/%N:/config
+Volume=%E/%N:/config:U,Z
 
 [Service]
 ConfigurationDirectory=%N

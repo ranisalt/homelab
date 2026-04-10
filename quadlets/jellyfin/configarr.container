@@ -1,12 +1,15 @@
+[Unit]
+After=lidarr.service radarr.service sonarr.service
+
 [Container]
 ContainerName=%N
 Image=ghcr.io/raydak-labs/configarr:latest
-Pod=jellyfin.pod
+Network=prowlarr.network
 Pull=newer
 Secret=tz,type=env,target=TZ
 User=1000:1000
-Volume=%E/%N:/app/config
-Volume=%C/%N:/app/repos
+Volume=%E/%N:/app/config:ro,Z
+Volume=%C/%N:/app/repos:U,Z
 
 [Service]
 CacheDirectory=%N
