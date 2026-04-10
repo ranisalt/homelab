@@ -12,9 +12,11 @@ HealthTimeout=3s
 Image=lscr.io/linuxserver/jellyfin:latest
 Pod=jellyfin.pod
 Secret=tz,type=env,target=TZ
+Volume=%C/%N:/cache
 Volume=%E/%N:/config
 
 [Service]
+CacheDirectory=%N
 ConfigurationDirectory=%N
 Restart=always
 
