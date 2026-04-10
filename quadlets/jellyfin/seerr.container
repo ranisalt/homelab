@@ -1,0 +1,27 @@
+[Unit]
+Wants=jellyfin.service radarr.service sonarr.service
+After=jellyfin.service radarr.service sonarr.service
+
+[Container]
+AutoUpdate=registry
+ContainerName=%N
+HealthCmd=/usr/bin/wget --no-verbose --tries=1 --spider http://localhost:5055/api/v1/status || exit 1
+HealthInterval=15s
+HealthRetries=3
+HealthStartPeriod=20s
+HealthTimeout=3s
+Image=ghcr.io/seerr-team/seerr:latest
+Network=jellyfin.network
+Network=podman
+PublishPort=5055:5055/tcp
+RunInit=true
+Secret=tz,type=env,target=TZ
+User=1000:1000
+Volume=%E/%N:/app/config:U,Z
+
+[Service]
+ConfigurationDirectory=%N
+Restart=always
+
+[Install]
+WantedBy=default.target
