@@ -1,7 +1,7 @@
 [Container]
 ContainerName=%N
 DropCapability=NET_RAW
-Image=ghcr.io/immich-app/immich-machine-learning:v2.7.3
+Image=ghcr.io/immich-app/immich-machine-learning:v2.7.5
 Network=immich-machine-learning.network
 NoNewPrivileges=yes
 User=1000:1000
