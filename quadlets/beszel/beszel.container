@@ -7,7 +7,6 @@ Volume=%D/%N:/beszel_data
 
 [Service]
 Restart=always
-StateDirectory=%N
 
 [Install]
 WantedBy=default.target

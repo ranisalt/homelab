@@ -1,0 +1,5 @@
+# Needed if agent and hub are on the same machine.
+# Set Network=beszel.network to both containers with a drop-in configuration.
+
+[Network]
+Internal=true
