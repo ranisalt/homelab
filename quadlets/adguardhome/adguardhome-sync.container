@@ -1,0 +1,17 @@
+[Container]
+AutoUpdate=registry
+ContainerName=%N
+Environment=PGID=1000
+Environment=PUID=1000
+Environment=UMASK=022
+Image=lscr.io/linuxserver/adguardhome-sync:latest
+Network=host
+Secret=tz,type=env,target=TZ
+Volume=%E/%N:/config
+
+[Service]
+ConfigurationDirectory=%N
+Restart=always
+
+[Install]
+WantedBy=default.target

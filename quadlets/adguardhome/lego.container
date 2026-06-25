@@ -1,0 +1,14 @@
+[Container]
+ContainerName=%N
+Environment=LEGO_CONFIG=/etc/lego/lego.yml
+Environment=LEGO_PATH=/data
+Image=docker.io/goacme/lego:latest
+Pull=newer
+Secret=lego-cf-dns-api-token,type=env,target=CF_DNS_API_TOKEN
+User=1000:1000
+Volume=%D/%N:/data:z
+Volume=%E/%N:/etc/lego:Z
+
+[Service]
+ConfigurationDirectory=%N
+Type=oneshot
