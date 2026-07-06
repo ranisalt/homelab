@@ -5,7 +5,7 @@ Environment=PGID=1000
 Environment=PUID=1000
 Environment=UMASK=022
 Image=lscr.io/linuxserver/homeassistant:latest
-Network=podman
+Network=homeassistant.network
 PublishPort=8123:8123/tcp
 Secret=tz,type=env,target=TZ
 Volume=%D/%N/custom-init:/custom-cont-init.d:ro
