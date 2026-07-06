@@ -6,7 +6,7 @@ After=dump1090.service
 AutoUpdate=registry
 ContainerName=%N
 Image=ghcr.io/ranisalt/piaware:latest
-Pod=feeders.pod
+Network=dump1090.network
 Volume=%E/%N/piaware.conf:/etc/piaware.conf
 
 [Service]

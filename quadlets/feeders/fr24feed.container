@@ -6,7 +6,8 @@ After=dump1090.service
 AutoUpdate=registry
 ContainerName=%N
 Image=ghcr.io/ranisalt/fr24feed:latest
-Pod=feeders.pod
+Network=dump1090.network
+PublishPort=8754:8754/tcp
 Volume=%E/%N/fr24feed.ini:/etc/fr24feed.ini
 
 [Service]

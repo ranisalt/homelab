@@ -1,3 +1,0 @@
-[Pod]
-PodName=%N
-PublishPort=8754:8754/tcp
