@@ -1,6 +1,6 @@
 [Unit]
-Requires=dump1090.container
-After=dump1090.container
+Requires=dump1090.service
+After=dump1090.service
 
 [Container]
 AutoUpdate=registry
