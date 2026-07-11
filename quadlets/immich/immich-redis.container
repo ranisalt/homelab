@@ -10,3 +10,4 @@ Volume=immich-redis.volume:/data:U,Z
 
 [Service]
 Restart=always
+RestartSec=5

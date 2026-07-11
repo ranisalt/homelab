@@ -6,6 +6,7 @@ After=immich-redis.service immich-database.service
 ContainerName=%N
 DropCapability=NET_RAW
 Environment=DB_HOSTNAME=immich-database
+Environment=DB_USER=immich
 Environment=IMMICH_HELMET_FILE=true
 Environment=REDIS_HOSTNAME=immich-redis
 HealthCmd=/usr/bin/curl -fSs http://localhost:2283/api/server/ping
@@ -20,12 +21,14 @@ Network=immich-redis.network
 Network=podman
 NoNewPrivileges=yes
 PublishPort=2283:2283/tcp
+Secret=immich-postgres-password,type=env,target=DB_PASSWORD
 Secret=tz,type=env,target=TZ
 User=1000:1000
 Volume=/etc/localtime:/etc/localtime:ro
 
 [Service]
 Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=default.target

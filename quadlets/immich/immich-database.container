@@ -3,15 +3,18 @@ ContainerName=%N
 DropCapability=NET_RAW
 Environment=POSTGRES_DB=immich
 Environment=POSTGRES_INITDB_ARGS=--data-checksums
+Environment=POSTGRES_USER=immich
 HealthCmd=pg_isready
 HealthInterval=10s
 HealthStartPeriod=20s
 Image=ghcr.io/immich-app/postgres@sha256:bcf63357191b76a916ae5eb93464d65c07511da41e3bf7a8416db519b40b1c23
 Network=immich-database.network
 NoNewPrivileges=yes
+Secret=immich-postgres-password,type=env,target=POSTGRES_PASSWORD
 ShmSize=128mb
 User=1000:1000
 Volume=immich-database.volume:/var/lib/postgresql/data:U,Z
 
 [Service]
 Restart=always
+RestartSec=5

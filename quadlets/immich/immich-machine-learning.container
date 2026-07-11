@@ -9,6 +9,7 @@ Volume=immich-model-cache.volume:/cache
 
 [Service]
 Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=default.target
