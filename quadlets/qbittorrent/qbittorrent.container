@@ -1,0 +1,26 @@
+[Container]
+ContainerName=%N
+Environment=LIBTORRENT=v2
+Environment=PGID=1000
+Environment=PUID=1000
+Environment=UMASK=022
+Environment=WEBUI_PORTS=6880/tcp
+HealthCmd=/usr/bin/curl -f http://localhost:6880/api/v2/app/version
+HealthInterval=15s
+HealthRetries=3
+HealthStartPeriod=20s
+HealthTimeout=3s
+Image=ghcr.io/hotio/qbittorrent:release
+Network=qbittorrent.network
+PublishPort=6880:6880/tcp
+Pull=newer
+Secret=tz,type=env,target=TZ
+Volume=%E/%N:/config:Z
+
+[Service]
+ConfigurationDirectory=%N
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
