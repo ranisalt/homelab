@@ -2,7 +2,6 @@
 AutoUpdate=registry
 ContainerName=%N
 Image=docker.io/traefik:v3.7
-Network=traefik.network
 PublishPort=8000:8000/tcp
 PublishPort=80:80/tcp
 PublishPort=443:443/tcp
