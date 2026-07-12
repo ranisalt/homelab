@@ -15,3 +15,4 @@ Volume=paperless-postgres.volume:/var/lib/postgresql/data
 
 [Service]
 Restart=always
+RestartSec=5

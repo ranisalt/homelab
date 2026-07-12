@@ -8,6 +8,7 @@ PodmanArgs=--group-add keep-groups
 
 [Service]
 Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=default.target

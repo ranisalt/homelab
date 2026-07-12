@@ -20,6 +20,7 @@ Volume=%h/paperless/export:/usr/src/paperless/export
 
 [Service]
 Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=default.target

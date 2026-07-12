@@ -20,6 +20,7 @@ Volume=beszel-agent.volume:/var/lib/beszel-agent
 
 [Service]
 Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=default.target

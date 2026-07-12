@@ -23,6 +23,7 @@ Volume=jack.volume:/data/jack:U,Z
 [Service]
 ConfigurationDirectory=%N
 Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=default.target

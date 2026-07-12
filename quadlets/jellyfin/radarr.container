@@ -20,6 +20,7 @@ Volume=%E/%N:/config:U,Z
 [Service]
 ConfigurationDirectory=%N
 Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=default.target

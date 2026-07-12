@@ -7,3 +7,4 @@ Volume=paperless-broker.volume:/data
 
 [Service]
 Restart=always
+RestartSec=5

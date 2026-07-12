@@ -22,6 +22,7 @@ Volume=%E/%N:/config
 CacheDirectory=%N
 ConfigurationDirectory=%N
 Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=default.target

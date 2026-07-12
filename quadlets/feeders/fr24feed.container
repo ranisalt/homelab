@@ -13,6 +13,7 @@ Volume=%E/%N/fr24feed.ini:/etc/fr24feed.ini
 [Service]
 ConfigurationDirectory=%N
 Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=default.target
